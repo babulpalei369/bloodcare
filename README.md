@@ -26,8 +26,8 @@ It allows users to register as donors, view donation history, and find the neare
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/babulpalei369/BloodCare.git
-   cd BloodCare
+   git clone https://github.com/babulpalei369/bloodCare.git
+   cd bloodCare
 2. Create and activate a virtual environment:
    ```bash
    python -m venv venv
