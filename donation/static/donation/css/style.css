@@ -1,0 +1,120 @@
+/* Global */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom right, #fff5f5, #ffecec);
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    background: linear-gradient(90deg, #e63946, #d62828);
+    padding: 15px 0;
+    color: white;
+}
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+.navbar .logo {
+    font-weight: 600;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+.nav-links a:hover {
+    color: #ffe66d;
+}
+
+/* Hero Banner */
+.hero {
+    height: 70vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    padding: 40px;
+    border-radius: 12px;
+    color: white;
+}
+.hero-overlay h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+.hero-overlay p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.btn-primary {
+    background: #e63946;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.btn-primary:hover {
+    background: #d62828;
+}
+
+/* Benefits Section */
+.benefits {
+    text-align: center;
+    padding: 60px 20px;
+}
+.benefits h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 280px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.card img {
+    width: 80px;
+    margin-bottom: 20px;
+}
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Footer */
+footer {
+    background: #222;
+    color: #bbb;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+}

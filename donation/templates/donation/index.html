@@ -1,0 +1,79 @@
+{% extends "donation/base.html" %}
+{% load static %}
+
+{% block title %}Welcome - BloodCare{% endblock %}
+
+{% block content %}
+<div class="flex items-center justify-center min-h-screen bg-red-100">
+  <!-- Hero Section -->
+  <section class="relative w-full h-[90vh] flex items-center justify-center overflow-hidden">
+    <!-- Background Image -->
+    <img src="{% static 'images/blood_banner1.jpg' %}" 
+         class="absolute inset-0 w-full h-full object-cover brightness-75 scale-105 animate-slowZoom">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
+
+    <!-- Floating Shapes -->
+    <div class="absolute top-16 left-20 w-24 h-24 bg-red-500 rounded-full opacity-30 animate-pulse"></div>
+    <div class="absolute bottom-24 right-32 w-32 h-32 bg-pink-400 rounded-full opacity-20 animate-bounce"></div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 text-center text-white px-6 animate-fadeIn">
+      <h1 class="text-5xl md:text-7xl font-extrabold mb-6 drop-shadow-xl tracking-wide">
+        Donate Blood, Save Lives 🩸
+      </h1>
+      <p class="text-lg md:text-2xl max-w-2xl mx-auto mb-8 leading-relaxed">
+        Every drop counts. Join our mission to save lives and spread hope.  
+      </p>
+      <a href="{% url 'donate_blood' %}" 
+         class="inline-block bg-gradient-to-r from-red-600 to-red-400 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:scale-110 transition transform duration-300 hover:shadow-2xl">
+        🚑 Donate Now
+      </a>
+      <a href="{% url 'request_blood' %}" 
+         class="ml-4 inline-block bg-gradient-to-r from-blue-600 to-blue-400 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:scale-110 transition transform duration-300 hover:shadow-2xl">
+        💉 Request Blood
+      </a>
+    </div>
+  </section>
+</div>
+
+<!-- Awareness Section -->
+<section class="max-w-6xl mx-auto py-20 px-6 text-center relative">
+  <h2 class="text-4xl font-extrabold mb-12 text-gray-800">Why Donate Blood?</h2>
+  
+  <div class="grid md:grid-cols-3 gap-10">
+    <div class="group p-8 bg-white/70 backdrop-blur-lg rounded-2xl shadow-lg transform transition hover:scale-105 hover:shadow-2xl hover:-translate-y-2 duration-300">
+      <div class="text-red-600 text-4xl mb-4 group-hover:scale-125 transition">❤️</div>
+      <h3 class="text-2xl font-semibold mb-3">Save Lives</h3>
+      <p>One donation can save up to three lives. Be the reason someone smiles again.</p>
+    </div>
+    <div class="group p-8 bg-white/70 backdrop-blur-lg rounded-2xl shadow-lg transform transition hover:scale-105 hover:shadow-2xl hover:-translate-y-2 duration-300">
+      <div class="text-blue-600 text-4xl mb-4 group-hover:scale-125 transition">🌍</div>
+      <h3 class="text-2xl font-semibold mb-3">Community Impact</h3>
+      <p>Your donation helps families, friends, and neighbours in times of need.</p>
+    </div>
+    <div class="group p-8 bg-white/70 backdrop-blur-lg rounded-2xl shadow-lg transform transition hover:scale-105 hover:shadow-2xl hover:-translate-y-2 duration-300">
+      <div class="text-green-600 text-4xl mb-4 group-hover:scale-125 transition">💪</div>
+      <h3 class="text-2xl font-semibold mb-3">Good for You</h3>
+      <p>Donating blood improves your health and builds a stronger, caring society.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fadeIn {
+    animation: fadeIn 1.5s ease-out;
+  }
+  @keyframes slowZoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.08); }
+  }
+  .animate-slowZoom {
+    animation: slowZoom 20s ease-in-out infinite alternate;
+  }
+</style>
+{% endblock %}
+

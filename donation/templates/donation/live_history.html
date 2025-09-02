@@ -1,0 +1,21 @@
+{% extends "donation/base.html" %}
+{% block title %}Live Requests{% endblock %}
+{% block content %}
+
+ <div class="max-w-5xl mx-auto py-12 px-6">
+   <h2 class="text-3xl font-bold mb-8 text-center">Live Blood Requests</h2>
+   <div class="space-y-6">
+     {% for req in requests %}
+       <div class="p-6 bg-white rounded-xl shadow-md hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold text-blue-600">{{ req.blood_group }} Needed</h3>
+        <p class="text-sm text-gray-500 mt-2">Requested on {{ req.date }}</p>
+       </div>
+     {% empty %}
+      <p class="text-center text-gray-500">No live requests.</p>
+     {% endfor %}
+   </div>
+ </div>
+{% endblock %}
+
+
+

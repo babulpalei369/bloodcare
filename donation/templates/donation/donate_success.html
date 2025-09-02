@@ -1,0 +1,18 @@
+{% extends "donation/base.html" %}
+{% block content %}
+<div class="max-w-2xl mx-auto py-12 px-6 text-center">
+  <h2 class="text-3xl font-bold mb-6 text-green-600">✅ Blood Donation Request Submitted</h2>
+  {% if nearest_hospital %}
+  <h3>Nearest Hospital where you can donate:</h3>
+  <p>
+    🏥 <strong>{{ nearest_hospital.name }}</strong> <br>
+    📍 {{ nearest_hospital.address }} <br>
+    <a href="https://www.google.com/maps/dir/?api=1&destination={{ nearest_hospital.latitude }},{{ nearest_hospital.longitude }}" target="_blank">
+      🚗 Get Directions on Google Maps
+    </a>
+  </p>
+  {% else %}
+    <p class="text-red-600">⚠️ Sorry, no hospital found in this city.</p>
+  {% endif %}
+</div>
+{% endblock %}

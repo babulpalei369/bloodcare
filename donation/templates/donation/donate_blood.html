@@ -1,0 +1,79 @@
+{% extends "donation/base.html" %}
+{% block title %}Donate Blood{% endblock %}
+{% block content %}
+
+<script>
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition, showError);
+  } else {
+    alert("❌ Geolocation is not supported by this browser.");
+  }
+}
+
+function showPosition(position) {
+  document.getElementById("lat").value = position.coords.latitude;
+  document.getElementById("lng").value = position.coords.longitude;
+  document.getElementById("location-status").innerText = "✅ Location added!";
+}
+
+function showError(error) {
+  let msg = "⚠️ Error fetching location.";
+  if (error.code === error.PERMISSION_DENIED) msg = "⚠️ Permission denied.";
+  else if (error.code === error.POSITION_UNAVAILABLE) msg = "⚠️ Location unavailable.";
+  else if (error.code === error.TIMEOUT) msg = "⚠️ Request timed out.";
+  alert(msg);
+}
+</script>
+
+<div class="relative min-h-screen bg-gradient-to-r from-red-100 via-pink-100 to-yellow-100 flex items-center justify-center px-6 py-12">
+
+  <!-- Floating Shapes -->
+  <div class="absolute top-10 left-10 w-24 h-24 bg-red-400 rounded-full opacity-30 animate-pulse"></div>
+  <div class="absolute bottom-20 right-20 w-32 h-32 bg-pink-400 rounded-full opacity-30 animate-bounce"></div>
+
+  <!-- Form Card -->
+  <div class="w-full max-w-3xl relative bg-white/30 backdrop-blur-lg border border-red-200 rounded-2xl shadow-xl p-10 transform hover:scale-[1.02] transition duration-300 hover:shadow-2xl animate-fadeIn">
+    <h2 class="text-3xl font-bold text-center mb-8 text-red-600">Donate Blood</h2>
+
+    <form method="post" class="space-y-6">
+      {% csrf_token %}
+      {{ form.as_p }}
+
+      <!-- Hidden Location Fields -->
+      <input type="hidden" name="latitude" id="lat">
+      <input type="hidden" name="longitude" id="lng">
+
+      <!-- Location Button -->
+      <button type="button" onclick="getLocation()" 
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold shadow-md transform hover:scale-105 transition duration-300">
+        📍 Use My Location
+      </button>
+      <p id="location-status" class="text-center text-sm text-gray-600"></p>
+
+      <!-- Submit Button -->
+      <button type="submit" 
+        class="w-full bg-gradient-to-r from-red-600 to-red-400 hover:from-red-700 hover:to-red-500 text-white py-3 rounded-lg font-semibold shadow-md transform hover:scale-105 transition duration-300">
+        🚑 Submit Donation
+      </button>
+    </form>
+  </div>
+</div>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fadeIn {
+    animation: fadeIn 1s ease-out;
+  }
+</style>
+{% endblock %}
+
+
+
+
+
+
+
